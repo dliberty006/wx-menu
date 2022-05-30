@@ -1,0 +1,51 @@
+<view class="search">
+    <view class="search-form">
+      <input type="text" bindtap='clickInput' placeholder="搜菜谱、食材"></input>
+    </view>
+</view>
+<swiper class='u-wrp-bnr'  indicator-dots='true' autoplay='true' interval='3000' duration='fany' circular='true'>
+  <block wx:for="{{bnrUrl}}" wx:for-index="index">
+    <swiper-item>
+      <image bindtap="goLink" src='http://www.dliberty.com/images/{{item.bannerImg}}' data-link="{{item.bannerUrl}}" data-redirecttype="{{item.redirectType}}" class='u-img-slide' mode='aspectFill'></image>
+    </swiper-item>
+  </block>
+</swiper>
+<view class="content">
+  <view class="con_topic">
+     <block wx:for="{{topicList}}" wx:key="item">
+        <view class="topic_item"  data-link="{{item.bannerUrl}}" data-redirecttype="{{item.redirectType}}" bindtap="goLink">
+          <image src="http://www.dliberty.com/images/{{item.bannerImg}}"></image>
+        </view>
+     </block>
+  </view>
+  <view class="con_tj">
+    <view class="tj_name">
+      <view class="fl">热门推荐</view>
+      <view class="fr" bindtap="allCate">查看全部</view>
+    </view>
+    <view class="tj_content">
+      <block wx:for="{{tjList}}" wx:key="item">
+        <image  src='http://www.dliberty.com/images/{{item.bannerImg}}' class="tj_item" data-link="{{item.bannerUrl}}" data-redirecttype="{{item.redirectType}}" bindtap="goLink"></image>
+      </block>
+    </view>
+  </view>
+  
+</view>
+<view class="con_new">
+    <view class="new_name">热度最高</view>
+    <view class='list'>
+      <block wx:for="{{list}}" wx:key="id">
+        <block wx:if="{{item.id != menuVo.id}}">
+          <view class='item' data-menuid='{{item.id}}' bindtap='goDetail'>
+            <image class='zhutu' lazy-load="true" src='http://www.dliberty.com/images/{{item.menuImg}}'></image>
+            <image class='jingxuan' src='../../img/jx.png'></image>
+            <view class='menu_name'>{{item.menuName}}</view>
+            <view class='menu_material'>
+              <text wx:for="{{item.materialList}}" wx:for-item="material" wx:key="id">{{material.materialName}} </text>
+            </view>
+            <view class='sc'>{{item.browseNum}}浏览 {{item.collectNum}}收藏</view>
+          </view>
+        </block>
+      </block> 
+    </view>
+  </view>

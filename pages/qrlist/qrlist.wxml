@@ -1,0 +1,46 @@
+<view class="container">
+  <view class="search">
+      <view class="search-form">
+        <text class="cuIcon-search"></text>
+        <input focus="{{inputShowed}}" type="text" value='{{keyword}}' bindtap='clickInput' confirm-type="search" bindconfirm='search'  bindinput="changeKw" placeholder="搜菜谱、食材"></input>
+      </view>
+      <view class="action" bindtap='search'>
+        搜索
+      </view>
+  </view>
+  <view class='content'>
+  <scroll-view hidden='{{clickInput}}' scroll-y="true" style="height:{{height}}px" bindscrolltolower="searchScrollLower"> 
+      <view class='list' >
+        <block wx:for="{{list}}" wx:key="id">
+          <view class='item' data-menuid='{{item.id}}' bindtap='goDetail'>
+            <image class='zhutu' lazy-load="true" src='http://www.dliberty.com/images/{{item.menuImg}}'></image>
+            <image class='jingxuan' src='../../img/jx.png'></image>
+            <view class='menu_name'>{{item.menuName}}</view>
+            <view class='menu_material'>
+              <text wx:for="{{item.materialList}}" wx:for-item="material" wx:key="id">{{material.materialName}} </text>
+            </view>
+            <view class='sc'>{{item.browseNum}}浏览 {{item.collectNum}}收藏</view>
+          </view>
+        </block>
+        <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>  
+        <view class="loading complete" hidden="{{!searchLoadingComplete}}">------我是有底线的------</view>  
+      </view>
+  </scroll-view>
+      <view class='search_tj' hidden='{{!clickInput}}'>
+        <view class='tj_item'>
+          <view class='item_name'>历史搜索：
+            <image bindtap='removeHistory' src='../../img/icon/delete.png'></image>
+          </view>
+          <view class='item_desc'>
+            <view wx:for="{{historySearch}}" wx:key="item" bindtap='fastSearch' data-name="{{item}}">{{item}}</view>
+          </view>
+        </view>
+        <view class='tj_item'>
+          <view class='item_name'>热门搜索：</view>
+          <view class='item_desc'>
+            <view wx:for="{{hotSearch}}" wx:key="item" bindtap='fastSearch' data-name="{{item}}">{{item}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+</view>

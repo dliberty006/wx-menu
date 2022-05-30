@@ -1,0 +1,60 @@
+page{
+  background: #f1f1f1;
+}
+button::after {
+  border: none;
+}
+.header{
+  background: #ffffff;
+  width: 100%;
+  height: 400rpx;
+  text-align: center;
+  border: 1px solid #ffffff;
+}
+.header .logo{
+  width:200rpx;
+  height:200rpx;
+  margin: 40rpx auto;
+  border-radius:50%;
+  overflow: hidden;
+}
+.header .username{
+  color: #343434;
+  font-size: 30rpx;
+}
+
+.list_item{
+  margin-top: 20rpx;
+  background: #ffffff;
+  color: #343434;
+  font-size: 30rpx;
+}
+.list_item .item{
+  height: 100rpx;
+  line-height: 100rpx;
+  margin-left: 40rpx;
+  position: relative;
+  border-bottom: 1px solid #ddd;
+}
+.list_item .item:last-child{
+  border-bottom:none;
+}
+.list_item .item button{
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  outline: none; 
+  color: #343434;
+  font-size: 30rpx;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  line-height: 100rpx;
+}
+.list_item .item image{
+  position:absolute;
+  top:30rpx;
+  right:30rpx;
+  width:40rpx;
+  height:40rpx;
+}

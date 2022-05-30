@@ -1,0 +1,23 @@
+<block wx:if="{{list && list.length > 0}}">
+  <view class='list'>
+    <block wx:for="{{list}}" wx:key="id">
+      <block wx:if="{{item.id != menuVo.id}}">
+        <view class='item' data-menuid='{{item.id}}' bindtap='goDetail'>
+          <image class='zhutu' lazy-load="true" src='http://www.dliberty.com/images/{{item.menuImg}}'></image>
+          <image class='jingxuan' src='../../img/jx.png'></image>
+          <view class='menu_name'>{{item.menuName}}</view>
+          <view class='menu_material'>
+            <text wx:for="{{item.materialList}}" wx:for-item="material" wx:key="id">{{material.materialName}} </text>
+          </view>
+          <view class='sc'>{{item.browseNum}}浏览 {{item.collectNum}}收藏</view>
+        </view>
+      </block>
+    </block> 
+  </view>
+</block>
+<block wx:else>
+<view class='empty'>
+  <image src='../../img/icon/ku.png'></image>
+  <view>收藏夹空空如也~</view>
+</view>
+</block>

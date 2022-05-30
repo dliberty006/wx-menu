@@ -1,0 +1,64 @@
+<view class='zhutu'>
+  <image wx:if="{{menuVo.menuImg}}" src='http://www.dliberty.com/images/{{menuVo.menuImg}}'></image>
+</view>
+<view class='zhu'>
+  <view class='zhu_desc'>
+    <view class='menu_name'>{{menuVo.menuName}}</view>
+    <view class='menu_auth'>{{menuVo.menuAuth}} {{menuVo.browseNum}}浏览 {{menuVo.collectNum}}收藏</view>
+    <view class='menu_desc'>{{menuVo.menuDesc}}</view>
+  </view>
+  <view class='material'>
+    <view class="m_title">用料</view>
+    <block wx:for="{{menuVo.materialList}}" wx:key="id">
+      <view class='item' bindtap="search" data-name="{{item.materialName}}">
+        <view class='fl'>{{item.materialName}}</view>
+        <view class='fr'>
+          {{item.materialDesc}}
+          <image src='../../img/icon/jiantou_right.png'></image>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class='step'>
+    <view class="m_title">做法</view>
+    <block wx:for="{{menuVo.stepList}}" wx:key="id">
+      <view class='item'>
+       <image class='zhutu' lazy-load="true" binderror="errorImage" data-index="{{index}}" wx:if="{{item.stepImg != null && !item.showImg}}" src='http://www.dliberty.com/images/{{item.stepImg}}'></image>
+        <view class='desc'>
+          {{item.stepIndex}}. {{item.stepDesc}}
+        </view>
+      </view>
+    </block>
+  </view>
+  <block wx:if="{{menuVo.menuTip}}">
+    <view class='tip'>
+      <view class="m_title">小贴士</view>
+      <view class='tip_desc'>{{menuVo.menuTip}}</view>
+    </view>
+  </block>
+  <button class='big_share' open-type="share"><image src='../../img/icon/share.png' /><text>美食需要与家人、朋友共同分享</text></button>
+</view>
+<view class='kongxi'></view>
+<view class='tuijian'>
+    <view class="m_title">相关菜谱</view>
+   <view class='list'>
+      <block wx:for="{{list}}" wx:key="id">
+        <block wx:if="{{item.id != menuVo.id}}">
+          <view class='item' data-menuid='{{item.id}}' bindtap='goDetail'>
+            <image class='zhutu' lazy-load="true" src='http://www.dliberty.com/images/{{item.menuImg}}'></image>
+            <image class='jingxuan' src='../../img/jx.png'></image>
+            <view class='menu_name'>{{item.menuName}}</view>
+            <view class='menu_material'>
+              <text wx:for="{{item.materialList}}" wx:for-item="material" wx:key="id">{{material.materialName}} </text>
+            </view>
+            <view class='sc'>{{item.browseNum}}浏览 {{item.collectNum}}收藏</view>
+          </view>
+        </block>
+      </block> 
+    </view>
+</view>
+<view class='footer'>
+  <button class='sc' bindtap='collection' wx:if="{{!isCollection}}"><image src='../../img/icon/xin.png'></image><text>收藏</text></button>
+  <button class='issc' bindtap='unCollection' wx:else><image src='../../img/icon/heixin.png'></image><text>收藏</text></button>
+  <button class='share' open-type="share"><image src='../../img/icon/share.png'></image><text>分享</text></button>
+</view>

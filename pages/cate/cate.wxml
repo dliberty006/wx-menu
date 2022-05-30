@@ -1,0 +1,28 @@
+<view class="container">
+  <view class="search">
+    <view class="search-form">
+      <text class="cuIcon-search"></text>
+      <input type="text" bindtap='clickInput' placeholder="搜菜谱、食材"></input>
+    </view>
+  </view>
+  <view class='section'>
+    <view class='fl'>
+    <scroll-view scroll-y="true"  style='height:{{height}}px;' >
+      <block wx:for="{{cateOne}}" wx:key="id">
+        <view class='fl_item {{selectIndex == item.id ? "fl_item_selected" : ""}}' bindtap='tapOne' data-name='{{item.categoryName}}' data-index='{{item.id}}'>{{item.categoryName}}</view>
+      </block>
+    </scroll-view>
+  </view>
+  <view class='fr'>
+     <scroll-view scroll-y="true"  style='height:{{height}}px;' >
+    <view class='fr_con' style='min-height:{{height}}px'>
+        <view class='con_title'>{{oneName}}</view>
+        <view class='con_cate'>
+          <view wx:for="{{cateTwo}}" data-cateid="{{item.id}}" data-catename="{{item.categoryName}}" bindtap='tapItem' wx:key="id" class='con_li' data-index='{{index}}' >{{item.categoryName}}</view>
+        </view>
+    </view>
+    </scroll-view>
+  </view>
+  </view>
+
+</view>

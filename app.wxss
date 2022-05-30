@@ -1,0 +1,75 @@
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+
+
+
+.list{
+  width: 716rpx;
+  overflow: hidden;
+}
+
+.list .item{
+  width: 634rpx;
+  height: 210rpx;
+  margin: 64rpx 0 64rpx 58rpx;
+  position: relative;
+  background:#fff;
+  box-shadow:0rpx 10rpx 30rpx 0rpx rgba(0, 0, 53, 0.09);
+  border-radius:20rpx;
+}
+.list .item .zhutu{
+  width: 204rpx;
+  height: 204rpx;
+  position: absolute;
+  left: -40rpx;
+  top: -32rpx;
+  border-radius: 12rpx;
+  box-shadow: 0 10px 10px rgba(0,0,53,0.1);
+}
+.list .item .jingxuan{
+  width: 100rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.list .menu_name{
+  width: 350rpx;
+  color: #4A4A4A;
+  font-size: 34rpx;
+  position: absolute;
+  top: 26rpx;
+  left: 200rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.list .menu_material{
+  width: 400rpx;
+  color: #4A4A4A;
+  font-size: 24rpx;
+  position: absolute;
+  top:86rpx;
+  left: 200rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.list .sc{
+  color: #4A4A4A;
+  font-size: 24rpx;
+  position: absolute;
+  bottom: 20rpx;
+  left: 200rpx;
+}
+.list .loading{
+  text-align:center;
+  font-size:30rpx;
+  color:#888;
+  height:68rpx;
+  line-height:68rpx;
+}
