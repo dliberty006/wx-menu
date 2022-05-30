@@ -8,6 +8,8 @@
 
 > 如有问题或者好的建议可以在 Issues 中提。
 
+> 联系我们 可添加微信 liberty006 或 qq 1013659598
+
 
 ## 项目介绍
 
@@ -18,3 +20,10 @@
 
 ![image](gitimage/qrcode.jpg)
 
+## 项目截图
+![image](gitimage/1.jpg)
+![image](gitimage/2.jpg)
+![image](gitimage/3.jpg)
+![image](gitimage/4.jpg)
+![image](gitimage/5.jpg)
+![image](gitimage/6.jpg)
